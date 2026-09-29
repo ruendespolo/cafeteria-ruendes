@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Baristas</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="estilos.css" />
+	</head>
+	<body>	
+		<header>
+			<div class="container-hero">
+				<div class="container hero">
+					<div class="customer-support">
+						<i class="fa-solid fa-headset"></i>
+						<div class="content-customer-support">
+							<span class="text">Soporte al cliente</span>
+							<span class="number">123-456-7890</span>
+						</div>
+					</div>
+
+					<div class="container-logo">
+						<i class="fa-solid fa-mug-hot"></i>
+						<h1 class="logo"><a href="/">Baristas</a></h1>
+					</div>
+
+					<div class="container-user">
+						<i class="fa-solid fa-user"></i>
+						<i class="fa-solid fa-basket-shopping"></i>
+						<div class="content-shopping-cart">
+							<span class="text">Carrito</span>
+							<span class="number">(0)</span>
+							<div class="cart-panel">
+								<ul id="cart-list"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-navbar">
+				<nav class="navbar container">
+					<i class="fa-solid fa-bars"></i>
+					<ul class="menu">
+						<li><a href="#inicio">Inicio</a></li>
+						<li><a href="#categoria-moca">Moca Helado</a></li>
+						<li><a href="#categoria-expreso">Expreso</a></li>
+						<li><a href="#categoria-capuchino">Capuchino</a></li>
+						<li><a href="#top-products">Más</a></li>
+						<li><a href="#blogs">Blog</a></li>
+					</ul>
+
+					<form class="search-form">
+						<input type="search" placeholder="Buscar..." />
+						<button class="btn-search">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</button>
+					</form>
+				</nav>
+			</div>
+		</header>
+
+		<section class="banner" id="inicio">
+			<div class="banner-carousel">
+				<input type="radio" name="banner-slide" id="banner-slide-1" checked />
+				<input type="radio" name="banner-slide" id="banner-slide-2" />
+				<input type="radio" name="banner-slide" id="banner-slide-3" />
+				<input type="radio" name="banner-slide" id="banner-slide-4" />
+				<input type="radio" name="banner-slide" id="banner-slide-5" />
+
+				<div class="slides">
+					<div class="slide slide-1">
+						<img src="gallery1.jpg" alt="Café artesanal" />
+						<div class="slide-content">
+							<p>Café Delicioso</p>
+							<h2>Moca Helado</h2>
+							<button type="button" class="buy-now" data-product="Moca Helado" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+						</div>
+					</div>
+					<div class="slide slide-2">
+						<img src="gallery2.jpg" alt="Café tostado" />
+						<div class="slide-content">
+							<p>Especial del día</p>
+							<h2>Expreso Clásico</h2>
+							<button type="button" class="buy-now" data-product="Expreso Clásico" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+						</div>
+					</div>
+					<div class="slide slide-3">
+						<img src="gallery3.jpg" alt="Taza de café" />
+						<div class="slide-content">
+							<p>Tu favorito</p>
+							<h2>Capuchino</h2>
+							<button type="button" class="buy-now" data-product="Capuchino" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+						</div>
+					</div>
+					<div class="slide slide-4">
+						<img src="gallery4.jpg" alt="Café en grano" />
+						<div class="slide-content">
+							<p>Preparado recién</p>
+							<h2>Americano</h2>
+							<button type="button" class="buy-now" data-product="Americano" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+						</div>
+					</div>
+					<div class="slide slide-5">
+						<img src="gallery5.jpg" alt="Café con leche" />
+						<div class="slide-content">
+							<p>Lo más pedido</p>
+							<h2>Latte</h2>
+							<button type="button" class="buy-now" data-product="Latte" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="banner-nav">
+					<label for="banner-slide-1" aria-label="Slide 1"></label>
+					<label for="banner-slide-2" aria-label="Slide 2"></label>
+					<label for="banner-slide-3" aria-label="Slide 3"></label>
+					<label for="banner-slide-4" aria-label="Slide 4"></label>
+					<label for="banner-slide-5" aria-label="Slide 5"></label>
+				</div>
+
+				<div class="banner-controls">
+					<label for="banner-slide-5" class="prev prev-1" aria-label="Anterior"></label>
+					<label for="banner-slide-2" class="next next-1" aria-label="Siguiente"></label>
+					<label for="banner-slide-1" class="prev prev-2" aria-label="Anterior"></label>
+					<label for="banner-slide-3" class="next next-2" aria-label="Siguiente"></label>
+					<label for="banner-slide-2" class="prev prev-3" aria-label="Anterior"></label>
+					<label for="banner-slide-4" class="next next-3" aria-label="Siguiente"></label>
+					<label for="banner-slide-3" class="prev prev-4" aria-label="Anterior"></label>
+					<label for="banner-slide-5" class="next next-4" aria-label="Siguiente"></label>
+					<label for="banner-slide-4" class="prev prev-5" aria-label="Anterior"></label>
+					<label for="banner-slide-1" class="next next-5" aria-label="Siguiente"></label>
+				</div>
+			</div>
+		</section>
+
+		<main class="main-content">
+			<section class="container container-features">
+				<div class="card-feature">
+					<i class="fa-solid fa-plane-up"></i>
+					<div class="feature-content">
+						<span>Envío gratuito a nivel mundial</span>
+						<p>En pedido superior a $20.000</p>
+					</div>
+				</div>
+				<div class="card-feature">
+					<i class="fa-solid fa-wallet"></i>
+					<div class="feature-content">
+						<span>Contrareembolso</span>
+						<p>100% garantía de devolución de dinero</p>
+					</div>
+				</div>
+				<div class="card-feature">
+					<i class="fa-solid fa-gift"></i>
+					<div class="feature-content">
+						<span>Tarjeta regalo especial</span>
+						<p>Ofrece bonos especiales con regalo</p>
+					</div>
+				</div>
+				<div class="card-feature">
+					<i class="fa-solid fa-headset"></i>
+					<div class="feature-content">
+						<span>Servicio al cliente 24/7</span>
+						<p>LLámenos 24/7 al 123-456-7890</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="container category-showcase">
+				<div class="detail-category" id="categoria-moca">
+					<div class="detail-image image-moca"></div>
+					<div class="detail-content">
+						<p>Café especial</p>
+						<h2>Moca</h2>
+						<button type="button" class="detail-buy" data-product="Moca" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+					</div>
+				</div>
+
+				<div class="detail-category" id="categoria-expreso">
+					<div class="detail-image image-expreso"></div>
+					<div class="detail-content">
+						<p>Intenso y aromático</p>
+						<h2>Expreso Americano</h2>
+						<button type="button" class="detail-buy" data-product="Expreso Americano" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+					</div>
+				</div>
+
+				<div class="detail-category" id="categoria-capuchino">
+					<div class="detail-image image-capuchino"></div>
+					<div class="detail-content">
+						<p>Suave y cremoso</p>
+						<h2>Capuchino</h2>
+						<button type="button" class="detail-buy" data-product="Capuchino" onclick="addToCart(this.dataset.product)">Pedir ahora</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="container top-products" id="top-products">
+				<h1 class="heading-1">Mejores Productos</h1>
+
+				<div class="container-options">
+					<button type="button" class="filter-option active" data-filter="destacados">Destacados</button>
+					<button type="button" class="filter-option" data-filter="recientes">Más recientes</button>
+					<button type="button" class="filter-option" data-filter="vendidos">Mejores Vendidos</button>
+				</div>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product" data-category="destacados">
+						<div class="container-img">
+							<img src="cafe-irish.jpg" alt="Cafe Irish" />
+							<span class="discount">-13%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe irlandes</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$15.500 <span>$17.500</span></p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product" data-category="recientes">
+						<div class="container-img">
+							<img
+								src="cafe-ingles.jpg"
+								alt="Cafe Inglés"
+							/>
+							<span class="discount">-22%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Inglés</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$16.800 <span>$23.000</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product" data-category="vendidos">
+						<div class="container-img">
+							<img
+								src="cafe-australiano.jpg"
+								alt="Cafe Australiano"
+							/>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Cafe Australiano</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$10.000</p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product" data-category="recientes">
+						<div class="container-img">
+							<img src="cafe-helado.jpg" alt="Cafe Helado" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Helado</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$16.000</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="gallery">
+				<img
+					src="gallery1.jpg"
+					alt="Gallery Img1"
+					class="gallery-img-1"
+				/><img
+					src="gallery2.jpg"
+					alt="Gallery Img2"
+					class="gallery-img-2"
+				/><img
+					src="gallery3.jpg"
+					alt="Gallery Img3"
+					class="gallery-img-3"
+				/><img
+					src="gallery4.jpg"
+					alt="Gallery Img4"
+					class="gallery-img-4"
+				/><img
+					src="gallery5.jpg"
+					alt="Gallery Img5"
+					class="gallery-img-5"
+				/>
+			</section>
+
+			<section class="container specials">
+				<h1 class="heading-1">Especiales</h1>
+
+				<div class="container-products">
+					<!-- Producto 1 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="cafe-irish.jpg" alt="Cafe Irish" />
+							<span class="discount">-13%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Irish</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$15.500 <span>$17.500</span></p>
+						</div>
+					</div>
+					<!-- Producto 2 -->
+					<div class="card-product">
+						<div class="container-img">
+							<img
+								src="cafe-ingles.jpg"
+								alt="Cafe Inglés"
+							/>
+							<span class="discount">-22%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Inglés</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$16.800 <span>$23.000</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="cafe-viena.jpg" alt="Cafe Viena" />
+							<span class="discount">-30%</span>
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<h3>Cafe Viena</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$10.000 <span>$12.500</span></p>
+						</div>
+					</div>
+					<!--  -->
+					<div class="card-product">
+						<div class="container-img">
+							<img src="cafe-liqueurs.jpg" alt="Cafe Liqueurs" />
+							<div class="button-group">
+								<span>
+									<i class="fa-regular fa-eye"></i>
+								</span>
+								<span>
+									<i class="fa-regular fa-heart"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-code-compare"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-card-product">
+							<div class="stars">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-regular fa-star"></i>
+							</div>
+							<h3>Cafe Liqueurs</h3>
+							<span class="add-cart">
+								<i class="fa-solid fa-basket-shopping"></i>
+							</span>
+							<p class="price">$16.000</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="container blogs" id="blogs">
+				<h1 class="heading-1">Últimos Blogs</h1>
+
+				<div class="container-blogs">
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="blog-1.jpg" alt="Imagen Blog 1" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Lorem, ipsum dolor sit</h3>
+							<span>29 Noviembre 2022</span>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Iste, molestiae! Ratione et, dolore ipsum
+								quaerat iure illum reprehenderit non maxime amet dolor
+								voluptas facilis corporis, consequatur eius est sunt
+								suscipit?
+							</p>
+							<div class="btn-read-more">Leer más</div>
+						</div>
+					</div>
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="blog-3.jpg" alt="Imagen Blog 3" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Lorem, ipsum dolor sit</h3>
+							<span>29 Noviembre 2022</span>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Iste, molestiae! Ratione et, dolore ipsum
+								quaerat iure illum reprehenderit non maxime amet dolor
+								voluptas facilis corporis, consequatur eius est sunt
+								suscipit?
+							</p>
+							<div class="btn-read-more">Leer más</div>
+						</div>
+					</div>
+					<div class="card-blog">
+						<div class="container-img">
+							<img src="blog-3.jpg" alt="Imagen Blog 3" />
+							<div class="button-group-blog">
+								<span>
+									<i class="fa-solid fa-magnifying-glass"></i>
+								</span>
+								<span>
+									<i class="fa-solid fa-link"></i>
+								</span>
+							</div>
+						</div>
+						<div class="content-blog">
+							<h3>Lorem, ipsum dolor sit</h3>
+							<span>29 Noviembre 2022</span>
+							<p>
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Iste, molestiae! Ratione et, dolore ipsum
+								quaerat iure illum reprehenderit non maxime amet dolor
+								voluptas facilis corporis, consequatur eius est sunt
+								suscipit?
+							</p>
+							<div class="btn-read-more">Leer más</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container container-footer">
+				<div class="menu-footer">
+					<div class="contact-info">
+						<p class="title-footer">Información de Contacto</p>
+						<ul>
+							<li>
+								Dirección: 71 Pennington Lane Vernon Rockville, CT
+								06066
+							</li>
+							<li>Teléfono: 123-456-7890</li>
+							<li>Fax: 55555300</li>
+							<li>EmaiL: baristas@support.com</li>
+						</ul>
+						<div class="social-icons">
+							<span class="facebook">
+								<i class="fa-brands fa-facebook-f"></i>
+							</span>
+							<span class="twitter">
+								<i class="fa-brands fa-twitter"></i>
+							</span>
+							<span class="youtube">
+								<i class="fa-brands fa-youtube"></i>
+							</span>
+							<span class="pinterest">
+								<i class="fa-brands fa-pinterest-p"></i>
+							</span>
+							<span class="instagram">
+								<i class="fa-brands fa-instagram"></i>
+							</span>
+						</div>
+					</div>
+
+					<div class="information">
+						<p class="title-footer">Información</p>
+						<ul>
+							<li><a href="#">Acerca de Nosotros</a></li>
+							<li><a href="#">Información Delivery</a></li>
+							<li><a href="#">Politicas de Privacidad</a></li>
+							<li><a href="#">Términos y condiciones</a></li>
+							<li><a href="#">Contactános</a></li>
+						</ul>
+					</div>
+
+					<div class="my-account">
+						<p class="title-footer">Mi cuenta</p>
+
+						<ul>
+							<li><a href="#">Mi cuenta</a></li>
+							<li><a href="#">Historial de ordenes</a></li>
+							<li><a href="#">Lista de deseos</a></li>
+							<li><a href="#">Boletín</a></li>
+							<li><a href="#">Reembolsos</a></li>
+						</ul>
+					</div>
+
+					<div class="newsletter">
+						<p class="title-footer">Boletín informativo</p>
+
+						<div class="content">
+							<p>
+								Suscríbete a nuestros boletines ahora y mantente al
+								día con nuevas colecciones y ofertas exclusivas.
+							</p>
+							<input type="email" placeholder="Ingresa el correo aquí...">
+							<button>Suscríbete</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="copyright">
+					<p>
+						Desarrollado por Programación para el mundo &copy; 2022
+					</p>
+
+					<img src="payment.png" alt="Pagos">
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			const cartCounter = document.querySelector('.content-shopping-cart .number');
+			const cartList = document.getElementById('cart-list');
+			const cartPanel = document.querySelector('.cart-panel');
+			const buyButtons = document.querySelectorAll('.buy-now, .add-cart, .detail-buy');
+			const filterButtons = document.querySelectorAll('.filter-option');
+			const productCards = document.querySelectorAll('.top-products .card-product');
+			let cartItems = Number(localStorage.getItem('baristasCart')) || 0;
+			let cartProducts = JSON.parse(localStorage.getItem('baristasProducts')) || [];
+
+			function renderCart() {
+				if (cartCounter) {
+					cartCounter.textContent = `(${cartItems})`;
+				}
+
+				if (cartList) {
+					cartList.innerHTML = '';
+					cartProducts.forEach((product) => {
+						const item = document.createElement('li');
+						item.textContent = product;
+						cartList.appendChild(item);
+					});
+				}
+
+				if (cartPanel) {
+					cartPanel.classList.toggle('is-visible', cartProducts.length > 0);
+				}
+			}
+
+			function updateCart() {
+				localStorage.setItem('baristasCart', String(cartItems));
+				localStorage.setItem('baristasProducts', JSON.stringify(cartProducts));
+				renderCart();
+			}
+
+			function addToCart(productName) {
+				cartItems += 1;
+				cartProducts.push(productName);
+				updateCart();
+				alert(`${productName} se agregó al carrito.`);
+			}
+
+			function filterProducts(category) {
+				productCards.forEach((card) => {
+					const shouldShow = card.dataset.category === category;
+					card.classList.toggle('hidden', !shouldShow);
+				});
+			}
+
+			filterButtons.forEach((button) => {
+				button.addEventListener('click', () => {
+					filterButtons.forEach((btn) => btn.classList.remove('active'));
+					button.classList.add('active');
+					filterProducts(button.dataset.filter);
+				});
+			});
+
+			buyButtons.forEach((button) => {
+				button.addEventListener('click', (event) => {
+					event.preventDefault();
+					const productName =
+						button.dataset.product ||
+						button.closest('.slide-content')?.querySelector('h2')?.textContent ||
+						button.closest('.content-card-product')?.querySelector('h3')?.textContent ||
+						'producto';
+					addToCart(productName);
+				});
+			});
+
+			filterProducts('destacados');
+			updateCart();
+		</script>
+	</body>
+</html>
